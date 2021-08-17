@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Book
+@{
+    ViewBag.Title = "Kitap Güncelleme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitap Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("BookUpdate", "Book", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.BookAddDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Adı")
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ctg, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yazar Adı")
+    @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.writer, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kitap Adı ")
+    @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kitap Adeti ")
+    @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+    <br />
+    @Html.Label("Sıra No")
+    @Html.TextBoxFor(x => x.BookNo, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
+

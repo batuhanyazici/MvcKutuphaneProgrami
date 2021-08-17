@@ -1,0 +1,74 @@
+﻿@using EntityLayer
+@model List<Borrow>
+@{
+    ViewBag.Title = "Ödünç Verilen Kitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="/BorrowBooks/GiveBook" class="btn btn-success" id="btn1">Kitap Ver</a>
+<br /><br />
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kitap Adı</th>
+            <th>Kitabı Alan Üye</th>
+            <th>Aldığı Tarih</th>
+            <th>Getireceği Tarih</th>
+            <th>Güncelle</th>
+            <th>Getirildi Olarak İşaretle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.IsCome == false)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Book.BookName</td>
+                    <td>@item.User.UserName @item.User.UserSurname</td>
+                    <td>@item.BorrowDate</td>
+                    <td>@item.BringDate</td>
+                    <td><a href="/BorrowBooks/BorrowUpdate/@item.Id" class="btn btn-warning">Güncelle</a></td>
+                    <td><a href="/BorrowBooks/IsCome/@item.Id" class="btn btn-success">Getirdi Olarak İşaretle</a></td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Kitap Adı</th>
+            <th>Kitabı Alan Üye</th>
+            <th>Aldığı Tarih</th>
+            <th>Güncelle</th>
+            <th>Getirildi Olarak İşaretle</th>
+        </tr>
+    </tfoot>
+</table>
+<style>
+    .modal {
+        text-align: center;
+        padding: 0 !important;
+    }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+    #btn1 {
+        position: relative;
+        right: -1475px;
+    }
+</style>
+
+

@@ -1,0 +1,34 @@
+﻿@using EntityLayer
+@model EntityLayer.User
+@{
+    ViewBag.Title = "Üye Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/User/AddUser" method="post">
+    <div class="form-group">
+        @Html.Label("Üya Adı")
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Soyadı")
+        @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Tc Kimlik Numarası ")
+        @Html.TextBoxFor(x => x.UserIdNumber, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Telefon Numarası ")
+        @Html.TextBoxFor(x => x.UserPhone, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Mail")
+        @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Şifre")
+        @Html.TextBoxFor(x => x.UserPassword, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Yetkisi")
+        @Html.TextBoxFor(x => x.Role, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>
+

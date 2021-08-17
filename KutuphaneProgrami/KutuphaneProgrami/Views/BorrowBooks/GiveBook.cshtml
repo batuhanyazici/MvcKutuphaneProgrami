@@ -1,0 +1,25 @@
+﻿@using EntityLayer
+@model EntityLayer.Borrow
+@{
+    ViewBag.Title = "Ödünç Kitap Ver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/BorrowBooks/AddBorrow" method="post">
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id)
+        @Html.Label("Verilen Üye")
+        <br />
+        @Html.DropDownListFor(x => x.UserId, (List<SelectListItem>)ViewBag.users, new { @class = "form-control" })
+        <br />
+        @Html.Label("Verilen Kitap")
+        @Html.DropDownListFor(x => x.BookId, (List<SelectListItem>)ViewBag.books, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(model => model.BorrowDate, new { @type = "date" , @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(model => model.BringDate, new { @type = "date" , @class = "form-control" })
+        <br />
+
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>

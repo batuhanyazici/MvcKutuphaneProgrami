@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/sidebar-nav.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <link href="~/Content/Css/css-chart.css" rel="stylesheet" />
+    <link href="~/Content/Css/animate.css" rel="stylesheet" />
+    <link href="~/Content/Css/style.css" rel="stylesheet" />
+    <link href="~/Content/Css/blue.css" rel="stylesheet" />
+    <link href="~/Content/Css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                <div class="top-left-part"><a href="/UserPanel/Books"><br /><span class="hidden-xs">Online Kütüphane Programı</span></a></div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="~/Content/images/photo.jpeg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">@Html.Action("UserInfo", "Login")</b> </a>
+                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                            <li><a href="/UserPanel/MyProfile"><i class="fa fa-power-off"></i> Profilim</a></li>
+                            <li><a href="/Login/LogOut"><i class="fa fa-power-off"></i> Çıkış Yap</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                        <!-- input-group -->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li class="user-pro">
+                        <br />
+                        <a href="#" class="waves-effect"><img src="~/Content/images/photo.jpeg" alt="user-img" class="img-circle"> <span class="hide-menu">@Html.Action("UserInfo", "Login")<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/UserPanel/MyProfile"><i class="fa fa-power-off"></i> Profilim</a></li>
+                            <li><a href="/Login/LogOut"><i class="fa fa-power-off"></i> Çıkış Yap</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-small-cap m-t-10">--- Menüler</li>
+                    @if (User.IsInRole("A"))
+                    {
+                        <li>
+                            <a href="/Statistic" class="waves-effect"><i class="fas fa-chart-bar"></i> <span class="hide-menu"> İstatistikler</span></a>
+                        </li>
+                        <li>
+                            <a href="inbox.html" class="waves-effect"><i class="fa fa-book"></i> <span class="hide-menu">Kitaplar <span class="fa arrow"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/Book/Index">Listele</a></li>
+                                <li><a href="/Book/AddBook">Ekle</a></li>
+                                <li><a href="/BorrowBooks/BookBorrow">Ödünç Alınan Kitaplar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="inbox.html" class="waves-effect"><i class="fa fa-list"></i> <span class="hide-menu">Kategoriler <span class="fa arrow"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/Category/Index">Listele</a></li>
+                                <li>@Html.Action("CategoryAddMenu", "Category")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="inbox.html" class="waves-effect"><i class="fas fa-pencil-alt"></i> <span class="hide-menu">Yazarlar <span class="fa arrow"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/Writer/Index">Listele</a></li>
+                                <li>@Html.Action("WriterAddMenu", "Writer")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="inbox.html" class="waves-effect"><i class="fa fa-user"></i> <span class="hide-menu">Üyeler <span class="fa arrow"></span></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/User/Index">Listele</a></li>
+                                <li><a href="/User/AddUser">Ekle</a></li>
+                            </ul>
+                        </li>
+                    }
+                <li class="nav-small-cap m-t-10">--- Kullanıcı İşlemleri</li>
+                    <li>
+                        <a href="/UserPanel/Books" class="waves-effect"><i class="fas fa-book"></i> <span class="hide-menu"> Kitaplar</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">@ViewBag.Title</h4>
+                    </div>
+                </div>
+                <div class="row white-box">
+                    @RenderBody()
+                </div>
+                <footer class="footer text-center"> @DateTime.Now.Year &copy; Batuhan Yazıcı Tüm Hakları Saklıdır </footer>
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+        <!-- /#wrapper -->
+
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/sidebar-nav.min.js"></script>
+        <script src="~/Scripts/jquery.slimscroll.js"></script>
+        <script src="~/Scripts/waves.js"></script>
+        <script src="~/Scripts/jquery.flot.js"></script>
+        <script src="~/Scripts/jquery.flot.tooltip.min.js"></script>
+        <script src="~/Scripts/jquery-jvectormap-2.0.2.min.js"></script>
+        <script src="~/Scripts/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="~/Scripts/jquery.sparkline.min.js"></script>
+        <script src="~/Scripts/angular.easypiechart.min.js"></script>
+        <script src="~/Scripts/easy-pie-chart.init.js"></script>
+        <script src="~/Scripts/custom.js"></script>
+        <script src="~/Scripts/main.js"></script>
+        <script src="~/Scripts/dashboard2.js"></script>
+        <script src="~/Scripts/jQuery.style.switcher.js"></script>
+        <script src="~/Scripts/jquery.dataTables.min.js"></script>
+        <script src="~/Scripts/dataTables.buttons.min.js"></script>
+        <script src="~/Scripts/jszip.min.js"></script>
+        <script src="~/Scripts/pdfmake.min.js"></script>
+        <script src="~/Scripts/vfs_fonts.js"></script>
+        <script src="~/Scripts/buttons.html5.min.js"></script>
+        <script src="~/Scripts/buttons.print.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Setup - add a text input to each footer cell
+                $('#example tfoot th').each(function () {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" placeholder=" ' + title + ' Ara" />');
+                });
+
+                // DataTable
+                var table = $('#example').DataTable({
+                    initComplete: function () {
+                        // Apply the search
+                        this.api().columns().every(function () {
+                            var that = this;
+
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that
+                                        .search(this.value)
+                                        .draw();
+                                }
+                            });
+                        });
+                    }
+                });
+
+            });
+        </script>
+    </div>
+</body>
+</html>

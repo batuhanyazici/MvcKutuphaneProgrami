@@ -1,0 +1,30 @@
+﻿@using EntityLayer
+@model EntityLayer.Book
+@{
+    ViewBag.Title = "Kitap Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="/Book/AddBook" method="post">
+    <div class="form-group">
+        @Html.Label("Kategori Ekle")
+        <br />
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ctg, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yazar Ekle")
+        @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.writer, new { @class = "form-control" })
+        @* Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })*@
+        <br />
+        @Html.Label("Kitap Adı ")
+        @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kitap Adeti ")
+        @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+        <br />
+        @Html.Label("Sıra No")
+        @Html.TextBoxFor(x => x.BookNo, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>
+
+

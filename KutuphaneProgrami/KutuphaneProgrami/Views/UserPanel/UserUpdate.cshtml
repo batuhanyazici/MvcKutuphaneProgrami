@@ -1,0 +1,38 @@
+﻿@model EntityLayer.User
+@{
+    ViewBag.Title = "UserUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UserUpdate", "UserPanel", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.SignDate, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.UserPassword, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.Penalty, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.UserStatus, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Adı")
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Soyadı")
+        @Html.TextAreaFor(x => x.UserSurname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Tc Kimlik Numarası")
+        @Html.TextAreaFor(x => x.UserIdNumber, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Telefon Numarası")
+        @Html.TextAreaFor(x => x.UserPhone, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Mail")
+        @Html.TextAreaFor(x => x.UserMail, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Şifre")
+        @Html.TextAreaFor(x => x.OriginalPass, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+

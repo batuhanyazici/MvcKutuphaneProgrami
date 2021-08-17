@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Writer
+@{
+    ViewBag.Title = "WriterUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Yazar Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yazar Soyadı")
+        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+

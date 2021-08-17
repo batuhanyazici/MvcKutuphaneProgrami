@@ -1,0 +1,45 @@
+﻿<a href="#" data-toggle="modal" data-target="#Modal1">Ekle</a>
+    <!-- Modal -->
+    <div class="modal fade" id="Modal1" role="dialog" data-backdrop="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Yeni Kategori Ekle</h2>
+                </div>
+                <form action="/Category/CategoryAdd" method="post">
+                    <div class="modal-body">
+                        <label>Kategori Adı</label>
+                        <input type="text" name="CategoryName" class="form-control" />
+                        <br />
+                        <label>Kategori Açıklaması</label>
+                        <input type="text" name="CategoryDescription" class="form-control" />
+                        <br />
+                        <button class="btn btn-info">Ekle</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <style>
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+    </style>

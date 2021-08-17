@@ -1,0 +1,92 @@
+﻿@using EntityLayer
+@model List<User>
+@{
+    ViewBag.Title = "Üye Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ string status = "";}
+@{ string statusButton = "";}
+@{ string stat = "";}
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Tc Kimlik Numarası</th>
+            <th>Telefon Numarası</th>
+            <th>Kayıt Tarihi</th>
+            <th>Mail</th>
+            <th>Şifre</th>
+            <th>Durum</th>
+            <th>Güncelle</th>
+            <th>Aktif Ya Da Pasif Yap</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.UserStatus == true)
+            {
+                status = "Pasif Yap";
+                statusButton = "btn btn-danger";
+                stat = "Aktif";
+            }
+            if (item.UserStatus == false)
+            {
+                status = "Aktif Yap";
+                statusButton = "btn btn-success";
+                stat = "Pasif";
+            }
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.UserName</td>
+                <td>@item.UserSurname</td>
+                <td>@item.UserIdNumber</td>
+                <td>@item.UserPhone</td>
+                <td>@item.SignDate</td>
+                <td>@item.UserMail</td>
+                <td>@item.OriginalPass</td>
+                <td>@stat</td>
+                <td><a href="/User/UserUpdate/@item.Id" class="btn btn-warning">Güncelle</a></td>
+                <td><a href="/User/ActiveOrPassive/@item.Id" class="@statusButton">@status</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Tc Kimlik Numarası</th>
+            <th>Telefon Numarası</th>
+            <th>Kayıt Tarihi</th>
+            <th>Mail</th>
+            <th>Şifre</th>
+            <th>Durum</th>
+            <th>Güncelle</th>
+            <th>Aktif Ya Da Pasif Yap</th>
+        </tr>
+    </tfoot>
+</table>
+<style>
+    .modal {
+        text-align: center;
+        padding: 0 !important;
+    }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+</style>
+
