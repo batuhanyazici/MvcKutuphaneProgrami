@@ -42,5 +42,10 @@ namespace BusinessLayer.Concrete
         {
             return _borrowdal.List();
         }
+
+        public List<Borrow> GetListById(int id)
+        {
+            return _borrowdal.List(x => x.Id == id);
+        }
     }
 }

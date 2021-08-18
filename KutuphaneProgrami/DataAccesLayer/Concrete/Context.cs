@@ -16,5 +16,6 @@ namespace DataAccesLayer
         public DbSet<Borrow> Borrows { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<BorrowRequest> BorrowRequests { get; set; }
     }
 }

@@ -45,6 +45,7 @@ namespace KutuphaneProgrami.Controllers
         public ActionResult AddBook(Book p)
         {
             p.BookAddDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.Status = true;
             bm.BookAdd(p);
             return RedirectToAction("Index");
         }

@@ -34,7 +34,7 @@ namespace KutuphaneProgrami.Controllers
             {
                 FormsAuthentication.SetAuthCookie(userinfo.UserMail, false);
                 Session["UserMail"] = userinfo.UserMail;
-                return RedirectToAction("MyProfile", "UserPanel");
+                return RedirectToAction("Books", "UserPanel");
             }
             ViewBag.ErrorMessage = "Kullanıcı Adı veya Şifre Yanlış";
             return View();

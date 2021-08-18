@@ -1,0 +1,47 @@
+﻿@using EntityLayer
+@model List<BorrowRequest>
+@{
+    ViewBag.Title = "Ödünç Alma İsteklerim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kitap Adı</th>
+            <th>İstenilen Tarih</th>
+            <th>Getirilecek Tarih</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Book.BookName</td>
+            <td>@item.BorrowDate</td>
+            <td>@item.BringDate</td>
+            @if (item.Given == true)
+            {
+                <td>Verildi</td>
+            }
+            else
+            {
+                <td>Beklemede</td>
+            }
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Kitap Adı</th>
+            <th>İstenilen Tarih</th>
+            <th>Getirilecek Tarih</th>
+            <th>Durum</th>
+        </tr>
+    </tfoot>
+</table>
+

@@ -313,9 +313,9 @@
     <Content Include="Scripts\dashboard2.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\easy-pie-chart.init.js" />
-    <Content Include="Scripts\easyResponsiveTabs.js" />
     <Content Include="Scripts\jquery-jvectormap-2.0.2.min.js" />
     <Content Include="Scripts\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Scripts\jquery.charts-sparkline.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.flot.js" />
     <Content Include="Scripts\jquery.flot.tooltip.min - Copy.js" />
@@ -346,6 +346,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\UserRoleProvider.cs" />
     <Compile Include="Tasks\Jobs\PenaltyJob.cs" />
@@ -525,7 +526,6 @@
     <Content Include="Views\Writer\WriterUpdate.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
-    <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Book\BookUpdate.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\AddUser.cshtml" />
@@ -538,6 +538,12 @@
     <Content Include="Views\UserPanel\MyProfile.cshtml" />
     <Content Include="Views\UserPanel\UserUpdate.cshtml" />
     <Content Include="Views\UserPanel\Books.cshtml" />
+    <Content Include="Views\Statistic\Index.cshtml" />
+    <Content Include="Views\UserPanel\MyBorrowBooks.cshtml" />
+    <Content Include="Views\UserPanel\BorrowRequest.cshtml" />
+    <Content Include="Views\UserPanel\BorrowRequestAdd.cshtml" />
+    <Content Include="Views\BorrowBooks\RequestBorrow.cshtml" />
+    <Content Include="Views\BorrowBooks\RequestApprove.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -547,7 +553,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

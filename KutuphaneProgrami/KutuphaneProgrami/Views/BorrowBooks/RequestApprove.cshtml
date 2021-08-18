@@ -1,0 +1,31 @@
+﻿@using EntityLayer
+@model EntityLayer.BorrowRequest
+@{
+    ViewBag.Title = "İsteği Onayla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddBorrow", "BorrowBooks", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control"})
+    @Html.HiddenFor(x => x.UserId, new { @class = "form-control"})
+    @Html.HiddenFor(x => x.BookId, new { @class = "form-control"})
+    <br />
+    @Html.Label("Verilen Üye")
+    <br />
+    @Html.TextBoxFor(x => x.User.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Verilen Kitap")
+    @Html.TextBoxFor(x => x.Book.BookName, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Getireceği Tarih")
+    @Html.TextBoxFor(x => x.BorrowDate, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Geleceği Tarih")
+    @Html.TextBoxFor(x => x.BringDate, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    <button class="btn btn-success">Onayla</button>
+</div>
+}
+

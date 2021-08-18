@@ -1,0 +1,68 @@
+﻿@using EntityLayer
+@model List<Borrow>
+@{
+    ViewBag.Title = "Ödünç Aldığım Kitaplar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kitap Adı</th>
+            <th>Kitabı Alan Üye</th>
+            <th>Aldığı Tarih</th>
+            <th>Getireceği Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)    
+        {
+            if (item.IsCome == false)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Book.BookName</td>
+                    <td>@item.User.UserName @item.User.UserSurname</td>
+                    <td>@item.BorrowDate</td>
+                    <td>@item.BringDate</td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Kitap Adı</th>
+            <th>Kitabı Alan Üye</th>
+            <th>Aldığı Tarih</th>
+            <th>Getireceği Tarih Tarih</th>
+        </tr>
+    </tfoot>
+</table>
+<style>
+    .modal {
+        text-align: center;
+        padding: 0 !important;
+    }
+
+        .modal:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -4px;
+        }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    #btn1 {
+        position: relative;
+        right: -1475px;
+    }
+</style>
+

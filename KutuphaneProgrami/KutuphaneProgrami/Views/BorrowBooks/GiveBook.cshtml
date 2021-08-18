@@ -10,14 +10,16 @@
         @Html.HiddenFor(x => x.Id)
         @Html.Label("Verilen Üye")
         <br />
-        @Html.DropDownListFor(x => x.UserId, (List<SelectListItem>)ViewBag.users, new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.UserId, (List<SelectListItem>)ViewBag.users, new { @class = "form-control"})
         <br />
         @Html.Label("Verilen Kitap")
         @Html.DropDownListFor(x => x.BookId, (List<SelectListItem>)ViewBag.books, new { @class = "form-control" })
         <br />
-        @Html.TextBoxFor(model => model.BorrowDate, new { @type = "date" , @class = "form-control" })
+        @Html.Label("Kitabı Alacağı Tarih")
+        @Html.TextBoxFor(model => model.BorrowDate, new { @type = "date", @class = "form-control" })
         <br />
-        @Html.TextBoxFor(model => model.BringDate, new { @type = "date" , @class = "form-control" })
+        @Html.Label("Kitabı Vereceği Tarih")
+        @Html.TextBoxFor(model => model.BringDate, new { @type = "date", @class = "form-control" })
         <br />
 
         <button class="btn btn-info">Ekle</button>

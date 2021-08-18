@@ -17,6 +17,8 @@ namespace KutuphaneProgrami.Controllers
         Context c = new Context();
         UserManager um = new UserManager(new EfUserDal());
         BookManager bm = new BookManager(new EfBookDal());
+        BorrowManager brm = new BorrowManager(new EfBorrowDal());
+        RequestManager rn = new RequestManager(new EfRequestDal());
         public ActionResult Index()
         {
             return View();
@@ -32,7 +34,9 @@ namespace KutuphaneProgrami.Controllers
         [HttpGet]
         public ActionResult UserUpdate(int id)
         {
-            var uservalue = um.GetByID(id);
+            string p = (string)Session["UserMail"];
+            var useridinfo = c.Users.Where(x => x.UserMail == p).Select(y => y.Id).FirstOrDefault();
+            var uservalue = um.GetByID(useridinfo);
             return View(uservalue);
         }
         [HttpPost]
@@ -52,6 +56,42 @@ namespace KutuphaneProgrami.Controllers
         {
             var books = bm.GetList();
             return View(books);
+        }
+        [HttpGet]
+        public ActionResult MyBorrowBooks()
+        {
+            string p = (string)Session["UserMail"];
+            var useridinfo = c.Users.Where(x => x.UserMail == p).Select(y => y.Id).FirstOrDefault();
+            var deneme = c.Borrows.ToList().Where(x => x.UserId == useridinfo).ToList();
+            return View(deneme);
+        }
+        public ActionResult BorrowRequest()
+        {
+            string p = (string)Session["UserMail"];
+            var useridinfo = c.Users.Where(x => x.UserMail == p).Select(y => y.Id).FirstOrDefault();
+            var values = c.BorrowRequests.ToList().Where(x => x.UserId == useridinfo).ToList();
+            return View(values);
+        }
+        [HttpGet]
+        public ActionResult BorrowRequestAdd()
+        {
+            List<SelectListItem> bookinfo = (from x in bm.GetList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = x.BookName,
+                                                 Value = x.Id.ToString()
+                                             }).ToList();
+            ViewBag.books = bookinfo;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult BorrowRequestAdd(BorrowRequest p)
+        {
+            string v = (string)Session["UserMail"];
+            var useridinfo = c.Users.Where(x => x.UserMail == v).Select(y => y.Id).FirstOrDefault();
+            p.UserId = useridinfo;
+            rn.BorrowRequestAdd(p);
+            return RedirectToAction("BorrowRequest");
         }
     }
 }

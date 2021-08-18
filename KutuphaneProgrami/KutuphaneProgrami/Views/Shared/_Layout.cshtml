@@ -31,7 +31,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="~/Content/images/photo.jpeg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">@Html.Action("UserInfo", "Login")</b> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
-                            <li><a href="/UserPanel/MyProfile"><i class="fa fa-power-off"></i> Profilim</a></li>
+                            <li><a href="/UserPanel/MyProfile"><i class="fa fa-user"></i> Profilim</a></li>
                             <li><a href="/Login/LogOut"><i class="fa fa-power-off"></i> Çıkış Yap</a></li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -60,13 +60,13 @@
                         <br />
                         <a href="#" class="waves-effect"><img src="~/Content/images/photo.jpeg" alt="user-img" class="img-circle"> <span class="hide-menu">@Html.Action("UserInfo", "Login")<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/UserPanel/MyProfile"><i class="fa fa-power-off"></i> Profilim</a></li>
+                            <li><a href="/UserPanel/MyProfile"><i class="fa fa-user"></i> Profilim</a></li>
                             <li><a href="/Login/LogOut"><i class="fa fa-power-off"></i> Çıkış Yap</a></li>
                         </ul>
                     </li>
-                    <li class="nav-small-cap m-t-10">--- Menüler</li>
                     @if (User.IsInRole("A"))
                     {
+                        <li class="nav-small-cap m-t-10">--- Menüler</li>
                         <li>
                             <a href="/Statistic" class="waves-effect"><i class="fas fa-chart-bar"></i> <span class="hide-menu"> İstatistikler</span></a>
                         </li>
@@ -76,6 +76,7 @@
                                 <li><a href="/Book/Index">Listele</a></li>
                                 <li><a href="/Book/AddBook">Ekle</a></li>
                                 <li><a href="/BorrowBooks/BookBorrow">Ödünç Alınan Kitaplar</a></li>
+                                <li><a href="/BorrowBooks/RequestBorrow">Ödünç Alma İstekleri</a></li>
                             </ul>
                         </li>
                         <li>
@@ -100,9 +101,17 @@
                             </ul>
                         </li>
                     }
-                <li class="nav-small-cap m-t-10">--- Kullanıcı İşlemleri</li>
+                    <li class="nav-small-cap m-t-10">--- Kullanıcı İşlemleri</li>
                     <li>
                         <a href="/UserPanel/Books" class="waves-effect"><i class="fas fa-book"></i> <span class="hide-menu"> Kitaplar</span></a>
+                    </li>
+                    <li>
+                        <a href="inbox.html" class="waves-effect"><i class="fa fa-envelope"></i> <span class="hide-menu">Ödünç Alma İşlemleri <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/UserPanel/MyBorrowBooks">Ödünç Aldığım Kitaplar</a></li>
+                            <li><a href="/UserPanel/BorrowRequest">Bekleyen Ödünç Alma İstekleri</a></li>
+                            <li><a href="/UserPanel/BorrowRequestAdd">Ödünç Alma İsteği Oluştur</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -150,6 +159,7 @@
         <script src="~/Scripts/buttons.print.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        @RenderSection("script",false)
         <script>
             $(document).ready(function () {
                 // Setup - add a text input to each footer cell

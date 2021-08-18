@@ -4,3 +4,9 @@ C:\Users\Batuhan\source\repos\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLaye
 C:\Users\Batuhan\source\repos\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
 C:\Users\Batuhan\source\repos\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.dll
 C:\Users\Batuhan\source\repos\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.pdb
+C:\Users\Batuhan\Documents\GitHub\MvcKutuphaneProgrami\KutuphaneProgrami\EntityLayer\bin\Debug\EntityLayer.dll
+C:\Users\Batuhan\Documents\GitHub\MvcKutuphaneProgrami\KutuphaneProgrami\EntityLayer\bin\Debug\EntityLayer.pdb
+C:\Users\Batuhan\Documents\GitHub\MvcKutuphaneProgrami\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\Batuhan\Documents\GitHub\MvcKutuphaneProgrami\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\Batuhan\Documents\GitHub\MvcKutuphaneProgrami\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.dll
+C:\Users\Batuhan\Documents\GitHub\MvcKutuphaneProgrami\KutuphaneProgrami\EntityLayer\obj\Debug\EntityLayer.pdb

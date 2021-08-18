@@ -15,6 +15,7 @@ namespace KutuphaneProgrami.Controllers
         UserManager um = new UserManager(new EfUserDal());
         BookManager bm = new BookManager(new EfBookDal());
         BorrowManager brm = new BorrowManager(new EfBorrowDal());
+        RequestManager rn = new RequestManager(new EfRequestDal());
         public ActionResult BookBorrow()
         {
             var bookvalues = brm.GetList();
@@ -51,6 +52,7 @@ namespace KutuphaneProgrami.Controllers
         public ActionResult AddBorrow(Borrow p)
         {
             brm.BorrowAdd(p);
+            p.IsCome = false;
             return RedirectToAction("BookBorrow");
         }
         public ActionResult BorrowUpdate(int id)
@@ -84,6 +86,16 @@ namespace KutuphaneProgrami.Controllers
             borrowvalue.IsCome = true;
             brm.BorrowUpdate(borrowvalue);
             return RedirectToAction("BookBorrow");
+        }
+        public ActionResult RequestBorrow()
+        {
+            var values = rn.GetList();
+            return View(values);
+        }
+        public ActionResult RequestApprove(int id)
+        {
+            var request = rn.GetByID(id);
+            return View(request);
         }
     }
 }

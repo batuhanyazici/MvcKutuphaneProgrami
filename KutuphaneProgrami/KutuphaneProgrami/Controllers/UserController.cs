@@ -46,7 +46,6 @@ namespace KutuphaneProgrami.Controllers
             var uservalue = um.GetByID(id);
             return View(uservalue);
         }
-
         [HttpPost]
         public ActionResult UserUpdate(User p)
         {

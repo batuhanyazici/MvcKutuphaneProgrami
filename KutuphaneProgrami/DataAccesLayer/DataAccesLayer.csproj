@@ -55,6 +55,7 @@
     <Compile Include="Abstract\IBorrowDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\IRequestDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="EntityFramework\EfBookDal.cs" />
     <Compile Include="EntityFramework\EfBorrowDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="EntityFramework\EfRequestDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202108120808345_category_status.cs" />
@@ -107,6 +109,14 @@
     <Compile Include="Migrations\202108161346586_role_Change.cs" />
     <Compile Include="Migrations\202108161346586_role_Change.designer.cs">
       <DependentUpon>202108161346586_role_Change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171350427_borrow_request_Add.cs" />
+    <Compile Include="Migrations\202108171350427_borrow_request_Add.designer.cs">
+      <DependentUpon>202108171350427_borrow_request_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171415038_borrow_request_given_add.cs" />
+    <Compile Include="Migrations\202108171415038_borrow_request_given_add.designer.cs">
+      <DependentUpon>202108171415038_borrow_request_given_add.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -154,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108161346586_role_Change.resx">
       <DependentUpon>202108161346586_role_Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171350427_borrow_request_Add.resx">
+      <DependentUpon>202108171350427_borrow_request_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171415038_borrow_request_given_add.resx">
+      <DependentUpon>202108171415038_borrow_request_given_add.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

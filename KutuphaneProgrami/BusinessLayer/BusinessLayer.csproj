@@ -54,11 +54,13 @@
     <Compile Include="Abstract\IBookService.cs" />
     <Compile Include="Abstract\IBorrowService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\IRequestService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Abstract\IWriterService.cs" />
     <Compile Include="Concrete\BookManager.cs" />
     <Compile Include="Concrete\BorrowManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\RequestManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Concrete\WriterManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

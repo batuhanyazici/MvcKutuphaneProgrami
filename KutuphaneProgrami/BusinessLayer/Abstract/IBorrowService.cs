@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IBorrowService
     {
         List<Borrow> GetList();
+        List<Borrow> GetListById(int id);
         void BorrowAdd(Borrow borrow);
         Borrow GetByID(int id);
         void BorrowDelete(Borrow borrow);

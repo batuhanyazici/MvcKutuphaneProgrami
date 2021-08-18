@@ -1,0 +1,23 @@
+﻿@using EntityLayer
+@model EntityLayer.BorrowRequest
+@{
+    ViewBag.Title = "Ödünç Alma İsteği Oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/UserPanel/BorrowRequestAdd" method="post">
+    <div class="form-group">
+        @Html.HiddenFor(x => x.Id)
+        @Html.Label("İstenilen Kitap")
+        @Html.DropDownListFor(x => x.BookId, (List<SelectListItem>)ViewBag.books, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kitabı Alacağanız Tarih")
+        @Html.TextBoxFor(model => model.BorrowDate, new { @type = "date", @class = "form-control" })
+        <br />
+        @Html.Label("Kitabı Geri Vereceğiniz Tarih")
+        @Html.TextBoxFor(model => model.BringDate, new { @type = "date", @class = "form-control" })
+        <br />
+
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>
